@@ -35,7 +35,7 @@ productsRouter.put('/:id',async (req,res)=>{
 productsRouter.delete('/:id',async(req,res)=>{
     try {
         const deleteProduct = await ProductModel.findByIdAndDelete(req.params.id)
-        res.status(200).send('deleted')
+        res.status(204).send('deleted')
     } catch (error) {
         res.status(400).send(error)
     }
