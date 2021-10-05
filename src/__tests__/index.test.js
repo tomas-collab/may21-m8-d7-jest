@@ -98,6 +98,27 @@ describe("Testing the server", () => {
         expect(idResponse.body.name).toEqual(validProduct.name)
     })
 
+    it("should test that the /products endpoint is returning an updated product", async () => {
+        const response = await request.post('/products').send(validProduct)
+
+        expect(response.status).toBe(201)
+        expect(response.body._id).toBeDefined()
+
+        const idResponse = await request.put('/products/' + response.body._id)
+        expect(idResponse.body.name).toEqual(validProduct.name)
+    })
+
+    it("should test that the /products endpoint is returning a valid response to a deleted product", async () => {
+        const response = await request.post('/products').send(validProduct)
+
+        expect(response.status).toBe(201)
+        expect(response.body._id).toBeDefined()
+
+        const idResponse = await request.delete('/products/' + response.body._id)
+        // expect(idResponse).toEqual({})
+        expect(idResponse.status).toBe(200)
+    })
+
 
 
 

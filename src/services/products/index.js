@@ -28,7 +28,7 @@ productsRouter.put('/:id',async (req,res)=>{
         const updateProduct = await ProductModel.findByIdAndUpdate(req.params.id,req.body,{new:true})
         res.status(200).send(updateProduct)
     } catch (error) {
-        res.status(204).send(error)
+        res.status(400).send(error)
     }
 })
 
@@ -37,7 +37,7 @@ productsRouter.delete('/:id',async(req,res)=>{
         const deleteProduct = await ProductModel.findByIdAndDelete(req.params.id)
         res.status(200).send('deleted')
     } catch (error) {
-        
+        res.status(400).send(error)
     }
 })
 
