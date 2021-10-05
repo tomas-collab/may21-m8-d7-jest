@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
-    "watch": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "watch": "NODE_OPTIONS=--experimental-vm-modules jest --watchAll",
     "dev": "nodemon -r dotenv/config ./src",
     "start": "node ./src"
   },
@@ -15,7 +15,6 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "mongoose": "^6.0.9"
   },
